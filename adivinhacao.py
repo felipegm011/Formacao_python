@@ -3,11 +3,26 @@ import random
 print("***********************************")
 print("Bem vindo no jogo de adivinhação")
 print("***********************************")
-tentativas = 3
+tentativas = 0
 rodada = 0
+numero_secreto = random.randrange(1,101)
+print(numero_secreto)
+
+print("Qual é o nível de dificuldade:")
+print("(1) Fácil (2) Médio (3) Difícil")
+
+nivel = int(input("Digite o nível: "))
+
+if(nivel == 1):
+    tentativas = 20
+elif(nivel == 2):
+    tentativas = 10
+else:
+    tentativas = 5
+
 
 while (rodada < tentativas):
-    numero_secreto = random.randrange(50)
+    
     entrada = int (input("Digite seu número entre 1 e 100: "))
 
     if (entrada < 1 or entrada > 100):
@@ -28,7 +43,7 @@ while (rodada < tentativas):
         elif(entrada < numero_secreto):
             print("Errou, seu chute foi menor que o número secreto")
     rodada = rodada +1
-    # interpolação de string 
+    # interpolação de string para inverte valores basta usar o indice que começa por 0 para o primero parametro
     print("** ", "Tentativa: {} de {} ".format(rodada, tentativas))
 
 print("***********************************")
